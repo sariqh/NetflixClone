@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import '../styles/Row.scss'
+import './Row.scss'
 import {requests} from './request'
 import {Row} from './Row'
 
