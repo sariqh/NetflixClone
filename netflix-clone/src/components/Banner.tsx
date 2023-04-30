@@ -1,6 +1,7 @@
 import {useState, useEffect } from "react";
-import axios from 'axios';
-import {requests} from './request'
+import axios from '../axios';
+import {requests} from '../request'
+import './Banner.scss';
 
 type movieProps = {
     title?: string;
@@ -14,9 +15,11 @@ type movieProps = {
     const [movie, setMovie] = useState<movieProps>({});
     useEffect(() => {
       async function fetchData() {
-        const request = await axios.get(requests.feachNetflixOriginals);
+        const url = "https://api.themoviedb.org/3"+requests.feachNetflixOriginals
+        // console.log("Banner.tsx...", url)
+        const request = await axios.get(url);
         console.log(request.data.result);
-  
+
         //apiからランダムで値を取得している
         setMovie(
           request.data.results[
