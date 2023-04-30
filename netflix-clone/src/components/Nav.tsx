@@ -1,5 +1,5 @@
 import {useState, useEffect } from "react";
-import axios from 'axios';
+import './Nav.scss';
 
 type Props = {
     className?: string;

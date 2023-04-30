@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
-import './Row.scss'
+import './components/Row.scss'
 import {requests} from './request'
-import {Row} from './Row'
+import {Row} from './components/Row'
+import {Banner} from './components/Banner'
+import {Nav} from './components/Nav'
 
 function App() {
   return (
     <div className="App">
+        <Nav />
+        <Banner />
         <Row title="NETFLIX ORIGINALS" fetchUrl={requests.feachNetflixOriginals} isLargeRow />
         <Row title="Top Rated" fetchUrl={requests.feactTopRated} />
         <Row title="Action Movies" fetchUrl={requests.feactActionMovies} />
