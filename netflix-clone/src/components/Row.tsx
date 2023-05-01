@@ -39,6 +39,8 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
         const url = "https://api.themoviedb.org/3"+fetchUrl
         // fetchUrl = instance.BaseURL+fetchUrl
         // console.log("Row.tsx2...", fetchUrl)
+        // console.log("Row.tsx3...", isLargeRow)
+        // if(isLargeRow)
         const request = await axios.get(url);
         setMovies(request.data.results);
         return request;
@@ -62,7 +64,9 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
           setTrailerUrl("");
         } else {
           const url = "https://api.themoviedb.org/3" + `/movie/${movie.id}/videos?api_key=${API_KEY}`
+          console.log("Row.tsx4...", url)
           let trailerurl = await axios.get(url);
+          console.log("Row.tsx5...", trailerurl.data.results[0]?.key)
           setTrailerUrl(trailerurl.data.results[0]?.key);
         }
     };
@@ -77,7 +81,7 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
                 key={movie.id}
                 className={`Row-poster ${isLargeRow && "Row-poster-large"}`}
                 src={`${base_url}${
-                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                  movie.backdrop_path
                 }`}
                 alt={movie.name}
                 onClick={() => handleClick(movie)}
