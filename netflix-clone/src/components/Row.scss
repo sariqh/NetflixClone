@@ -1,7 +1,12 @@
+html {
+  background-color: #000;
+}
 
 .Row {
     margin-left: 20px;
     color: #fff;
+    text-align-last: left;
+    // background-color: #000;
   
     &-posters {
       display: flex;

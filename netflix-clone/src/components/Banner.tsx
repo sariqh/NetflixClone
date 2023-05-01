@@ -30,7 +30,7 @@ type movieProps = {
       }
       fetchData();
     }, []);
-    console.log(movie);
+    console.log("Banner2.tsx...", movie?.backdrop_path);
   
     // descriptionの切り捨てよう関数
     function truncate(str: any, n: number) {
